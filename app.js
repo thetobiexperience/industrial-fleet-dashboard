@@ -1,5 +1,4 @@
-console.log("Industrial Fleet Dashboard started.");
-
+// Machine data for the dashboard
 const machines = [
   {
     name: "Excavator 01",
@@ -31,3 +30,35 @@ const machines = [
   }
 ];
 
+//HTML Elements
+const machineContainer = document.getElementById("machine-container");
+const searchInput = document. getElementById("search-input");
+
+//Render all machine cards
+function renderMachines() {
+
+    let cards = "";
+
+    for (const machine of machines) {
+
+      cards += `
+          <div class="machine-card">
+            <h3>${machine.name}</h3>
+            <p>Status: ${machine.status}</p>
+            <p>Operating hours: ${machine.operatingHours}</p>
+            <p>Temperature: ${machine.temperature}</p>
+          </div>
+      `;
+
+    }
+
+    machineContainer.innerHTML = cards;
+}
+
+//React to user input
+searchInput.addEventListener("input", function() {
+  console.log(searchInput.value);
+});
+
+//Initial rendering
+renderMachines();

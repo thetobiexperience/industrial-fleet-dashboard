@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 40px;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f4f6f8;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+.machine-card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    width: 300px;
+
+}
