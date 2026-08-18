@@ -37,9 +37,20 @@ const searchInput = document. getElementById("search-input");
 //Render all machine cards
 function renderMachines() {
 
+  //Read the current search text and ignore upper/lower case
+  const searchText = searchInput.value.toLowerCase();
+
     let cards = "";
 
     for (const machine of machines) {
+
+      //Make the machine name lowercase for comparison
+      const machineName = machine.name.toLowerCase();
+
+      //Skip machines that do not match the search text
+      if (!machineName.includes(searchText)) {
+        continue;
+      }
 
       cards += `
           <div class="machine-card">
@@ -57,7 +68,7 @@ function renderMachines() {
 
 //React to user input
 searchInput.addEventListener("input", function() {
-  console.log(searchInput.value);
+  renderMachines();
 });
 
 //Initial rendering
