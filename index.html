@@ -25,6 +25,19 @@
                 placeholder="Search machine..."
             >
 
+            <select id="status-dropdown">
+                <option value="All">All</option>
+                <option value="Running">Running</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Offline">Offline</option>
+            </select>
+
+            <select id="sort-dropdown">
+                <option value="name">Name</option>
+                <option value="hours">Operating hours</option>
+                <option value="temperature">Temperature</option>
+            </select>
+
             <div class="summary">
                 <div class="summary-card">
                     <span>Running</span>
