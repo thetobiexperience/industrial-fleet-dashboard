@@ -22,3 +22,22 @@ header {
     width: 300px;
 
 }
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.running {
+    background-color: #dff5e1;
+}
+
+.maintenance {
+    background-color: #fff0c2;
+}
+
+.offline {
+    background-color: #ffd6d6;
+}
