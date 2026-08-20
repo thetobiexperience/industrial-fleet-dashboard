@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", sans-serif;
     background: linear-gradient(
         135deg,
         #f5f5f4,
@@ -102,7 +102,11 @@ main {
     border-radius: 12px;
     border: 1px solid #e5e7eb;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+    cursor: pointer;
 }
 
 .machine-card:hover {
@@ -165,7 +169,7 @@ main {
 .toolbar select {
     padding: 12px 16px;
     border: 1px solid #d1d5db;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: white;
     font-size: 15px;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -180,4 +184,57 @@ main {
     outline: none;
     border-color: #ea580c;
     box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.15);
+}
+
+
+/* =====================
+   Responsive design
+===================== */
+
+@media (max-width: 900px) {
+    #machine-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 24px 16px;
+    }
+
+    .header-content {
+        padding: 24px 16px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+    
+    #machine-container {
+        grid-template-columns: 1fr;
+    }
+
+    .toolbar {
+        flex-direction: column;
+    }
+
+    .summary {
+        flex-direction: column;
+    }
+}
+
+@media (hover: hover) {
+    .machine-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 36px rgba(15, 23, 42, 0.12);
+    }
+
+    .machine-card:hover p,
+    .machine-card:hover h3 {
+        color: white;
+    }
 }
