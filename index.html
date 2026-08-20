@@ -11,47 +11,54 @@
 
 <body>
     <header>
+      <div class="header-content">
         <h1>Industrial Fleet Dashboard</h1>
         <p>Monitor machine status and operating data.</p>
+      </div>
     </header>
 
     <main>
         <section>
+
             <h2>Fleet Overview</h2>
+            <p class="section-description">
+                View, search and monitor all machines.
+            </p>
 
-            <input
-                type="text"
-                id="search-input"
-                placeholder="Search machine..."
-            >
+              <div class="toolbar">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search machine..."
+                >
 
-            <select id="status-dropdown">
-                <option value="All">All</option>
-                <option value="Running">Running</option>
-                <option value="Maintenance">Maintenance</option>
-                <option value="Offline">Offline</option>
-            </select>
+                <select id="status-dropdown">
+                    <option value="All">All</option>
+                    <option value="Running">Running</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Offline">Offline</option>
+                </select>
 
-            <select id="sort-dropdown">
-                <option value="name">Name</option>
-                <option value="hours">Operating hours</option>
-                <option value="temperature">Temperature</option>
-            </select>
-
+                <select id="sort-dropdown">
+                    <option value="name">Name</option>
+                    <option value="hours">Operating hours</option>
+                    <option value="temperature">Temperature</option>
+                </select>
+              </div>
             <div class="summary">
                 <div class="summary-card">
-                    <span>Running</span>
                     <strong id="running-count">0</strong>
+                    <span>/ Running</span>
                 </div>
 
                 <div class="summary-card">
-                    <span>Maintenance</span>
                     <strong id="maintenance-count">0</strong>
+                    <span>/ Maintenance</span>
                 </div>
 
                 <div class="summary-card">
-                    <span>Offline</span>
                     <strong id="offline-count">0</strong>
+                    <span>/ Offline</span>
                 </div>
             </div>
 

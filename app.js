@@ -30,6 +30,48 @@ const machines = [
         operatingHours: 1622,
         location: "Mainz",
         temperature: 71
+    },
+    {
+        name: "Bulldozer 05",
+        status: "Running",
+        operatingHours: 4128,
+        location: "Aachen",
+        temperature: 74
+    },
+    {
+        name: "Forklift 06",
+        status: "Maintenance",
+        operatingHours: 1875,
+        location: "Leverkusen",
+        temperature: 58
+    },
+    {
+        name: "Dump Truck 07",
+        status: "Running",
+        operatingHours: 6982,
+        location: "Essen",
+        temperature: 81
+    },
+    {
+        name: "Compactor 08",
+        status: "Offline",
+        operatingHours: 2956,
+        location: "Dortmund",
+        temperature: 24
+    },
+    {
+        name: "Telehandler 09",
+        status: "Running",
+        operatingHours: 3564,
+        location: "Koblenz",
+        temperature: 69
+    },
+    {
+        name: "Concrete Mixer 10",
+        status: "Maintenance",
+        operatingHours: 4411,
+        location: "Siegen",
+        temperature: 63
     }
 ];
 
