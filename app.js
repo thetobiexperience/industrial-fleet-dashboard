@@ -81,6 +81,7 @@ const machines = [
 // =====================
 
 const machineContainer = document.getElementById("machine-container");
+const machineDetails = document.getElementById("machine-details");
 
 const searchInput = document.getElementById("search-input");
 const statusDropdown = document.getElementById("status-dropdown");
@@ -117,7 +118,7 @@ function renderMachines() {
         });
     }
 
-    let cards = "";
+    machineContainer.innerHTML = "";
 
     for (const machine of sortedMachines) {
         const machineName = machine.name.toLowerCase();
@@ -135,27 +136,34 @@ function renderMachines() {
             continue;
         }
 
-        cards += `
-            <div class="machine-card">
-                <h3>${machine.name}</h3>
+        // Create one machine card
+        const card = document.createElement("div");
+        card.classList.add("machine-card");
 
-                <p>
-                    Status:
-                    <span class="status-badge ${machine.status.toLowerCase()}">
-                        ${machine.status}
-                    </span>
-                </p>
+        card.innerHTML = `
+          <h3>${machine.name}</h3>
 
-                <p>Operating hours: ${machine.operatingHours}</p>
-                <p>Location: ${machine.location}</p>
-                <p>Temperature: ${machine.temperature} °C</p>
-            </div>
-        `;
-    }
+          <p>
+              Status:
+              <span class="status-badge ${machine.status.toLowerCase()}">
+                  ${machine.status}
+              </span>
+          </p>
 
-    machineContainer.innerHTML = cards;
+          <p>Operating hours: ${machine.operatingHours}</p>
+          <p>Location: ${machine.location}</p>
+          <p>Temperature: ${machine.temperature} °C</p>
+      `;
+
+    // Show this machine's details when its card is clicked
+    card.addEventListener("click", function () {
+        showMachineDetails(machine);
+    });
+
+    // Add the finished card to the page
+    machineContainer.append(card);
+  }
 }
-
 
 // Count machines by status
 function updateSummary() {
@@ -178,6 +186,16 @@ function updateSummary() {
     offlineCount.textContent = offline;
 }
 
+function showMachineDetails(machine) {
+    machineDetails.innerHTML = `
+        <h3>${machine.name}</h3>
+        <p>Status: ${machine.status}</p>
+        <p>Operating hours: ${machine.operatingHours}</p>
+        <p>Location: ${machine.location}</p>
+        <p>Temperature: ${machine.temperature} °C</p>
+    `;
+}
+
 
 // =====================
 // Event listeners
@@ -194,7 +212,6 @@ statusDropdown.addEventListener("change", function () {
 sortDropdown.addEventListener("change", function () {
     renderMachines();
 });
-
 
 // =====================
 // Initial rendering
