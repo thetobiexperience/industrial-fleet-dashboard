@@ -155,6 +155,19 @@ function renderMachines() {
           <p>Temperature: ${machine.temperature} °C</p>
       `;
 
+    // unselect card for select
+    card.addEventListener("click", function () {
+        const selectedCard = document.querySelector(".machine-card.selected");
+
+        if (selectedCard) {
+            selectedCard.classList.remove("selected");
+        }
+
+        card.classList.add("selected");
+
+        showMachineDetails(machine);
+    });
+
     // Show this machine's details when its card is clicked
     card.addEventListener("click", function () {
         showMachineDetails(machine);
@@ -188,11 +201,33 @@ function updateSummary() {
 
 function showMachineDetails(machine) {
     machineDetails.innerHTML = `
-        <h3>${machine.name}</h3>
-        <p>Status: ${machine.status}</p>
-        <p>Operating hours: ${machine.operatingHours}</p>
-        <p>Location: ${machine.location}</p>
-        <p>Temperature: ${machine.temperature} °C</p>
+        <div class="details-header">
+            <div>
+                <p class="details-label">Selected machine</p>
+                <h3>${machine.name}</h3>
+            </div>
+
+            <span class="status-badge ${machine.status.toLowerCase()}">
+                ${machine.status}
+            </span>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <span>Operating hours</span>
+                <strong>${machine.operatingHours} h</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Temperature</span>
+                <strong>${machine.temperature} °C</strong>
+            </div>
+
+            <div class="detail-item">
+                <span>Location</span>
+                <strong>${machine.location}</strong>
+            </div>
+        </div>
     `;
 }
 
@@ -211,6 +246,18 @@ statusDropdown.addEventListener("change", function () {
 
 sortDropdown.addEventListener("change", function () {
     renderMachines();
+});
+
+document.addEventListener("click", function (event) {
+    const clickedCard = event.target.closest(".machine-card");
+
+    if (!clickedCard) {
+        const selectedCard = document.querySelector(".machine-card.selected");
+
+        if (selectedCard) {
+            selectedCard.classList.remove("selected");
+        }
+    }
 });
 
 // =====================
