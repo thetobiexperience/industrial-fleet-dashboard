@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Excavator 01",
+        "status": "Running",
+        "operatingHours": 2341,
+        "location": "Cologne",
+        "temperature": 78
+    },
+    {
+        "name": "Generator 02",
+        "status": "Maintenance",
+        "operatingHours": 5120,
+        "location": "Bonn",
+        "temperature": 64
+    },
+    {
+        "name": "Loader 03",
+        "status": "Offline",
+        "operatingHours": 3890,
+        "location": "Düsseldorf",
+        "temperature": 22
+    },
+    {
+        "name": "Crane 04",
+        "status": "Running",
+        "operatingHours": 1622,
+        "location": "Mainz",
+        "temperature": 71
+    },
+    {
+        "name": "Bulldozer 05",
+        "status": "Running",
+        "operatingHours": 4128,
+        "location": "Aachen",
+        "temperature": 74
+    },
+    {
+        "name": "Forklift 06",
+        "status": "Maintenance",
+        "operatingHours": 1875,
+        "location": "Leverkusen",
+        "temperature": 58
+    },
+    {
+        "name": "Dump Truck 07",
+        "status": "Running",
+        "operatingHours": 6982,
+        "location": "Essen",
+        "temperature": 81
+    },
+    {
+        "name": "Compactor 08",
+        "status": "Offline",
+        "operatingHours": 2956,
+        "location": "Dortmund",
+        "temperature": 24
+    },
+    {
+        "name": "Telehandler 09",
+        "status": "Running",
+        "operatingHours": 3564,
+        "location": "Koblenz",
+        "temperature": 69
+    },
+    {
+        "name": "Concrete Mixer 10",
+        "status": "Maintenance",
+        "operatingHours": 4411,
+        "location": "Siegen",
+        "temperature": 63
+    },
+    {
+        "name": "Asphalt Paver 11",
+        "status": "Running",
+        "operatingHours": 2784,
+        "location": "Frankfurt",
+        "temperature": 76
+    },
+    {
+        "name": "Mobile Crusher 12",
+        "status": "Offline",
+        "operatingHours": 5338,
+        "location": "Stuttgart",
+        "temperature": 20
+    }
+]

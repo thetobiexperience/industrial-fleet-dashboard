@@ -2,78 +2,7 @@
 // Machine data
 // =====================
 
-const machines = [
-    {
-        name: "Excavator 01",
-        status: "Running",
-        operatingHours: 2341,
-        location: "Cologne",
-        temperature: 78
-    },
-    {
-        name: "Generator 02",
-        status: "Maintenance",
-        operatingHours: 5120,
-        location: "Bonn",
-        temperature: 64
-    },
-    {
-        name: "Loader 03",
-        status: "Offline",
-        operatingHours: 3890,
-        location: "Düsseldorf",
-        temperature: 22
-    },
-    {
-        name: "Crane 04",
-        status: "Running",
-        operatingHours: 1622,
-        location: "Mainz",
-        temperature: 71
-    },
-    {
-        name: "Bulldozer 05",
-        status: "Running",
-        operatingHours: 4128,
-        location: "Aachen",
-        temperature: 74
-    },
-    {
-        name: "Forklift 06",
-        status: "Maintenance",
-        operatingHours: 1875,
-        location: "Leverkusen",
-        temperature: 58
-    },
-    {
-        name: "Dump Truck 07",
-        status: "Running",
-        operatingHours: 6982,
-        location: "Essen",
-        temperature: 81
-    },
-    {
-        name: "Compactor 08",
-        status: "Offline",
-        operatingHours: 2956,
-        location: "Dortmund",
-        temperature: 24
-    },
-    {
-        name: "Telehandler 09",
-        status: "Running",
-        operatingHours: 3564,
-        location: "Koblenz",
-        temperature: 69
-    },
-    {
-        name: "Concrete Mixer 10",
-        status: "Maintenance",
-        operatingHours: 4411,
-        location: "Siegen",
-        temperature: 63
-    }
-];
+let machines = [];
 
 
 // =====================
@@ -95,6 +24,33 @@ const offlineCount = document.getElementById("offline-count");
 // =====================
 // Functions
 // =====================
+
+// Load machine-data from JSON file
+async function loadMachines() {
+    try {
+        const response = await fetch("data/machines.json");
+
+        if(!response.ok) {
+          throw new Error("Failed to load machine data.");
+        }
+
+        const data = await response.json();
+
+        machines = data;
+
+        renderMachines();
+        updateSummary();
+
+    } catch (error) {
+        console.error(error);
+
+        machineContainer.innerHTML = `
+            <p class="error-message">
+                Machines could not be loaded.
+            </p>
+        `;
+    }
+}
 
 // Render machine cards based on search, status and sorting
 function renderMachines() {
@@ -165,11 +121,6 @@ function renderMachines() {
 
         card.classList.add("selected");
 
-        showMachineDetails(machine);
-    });
-
-    // Show this machine's details when its card is clicked
-    card.addEventListener("click", function () {
         showMachineDetails(machine);
     });
 
@@ -264,5 +215,4 @@ document.addEventListener("click", function (event) {
 // Initial rendering
 // =====================
 
-renderMachines();
-updateSummary();
+loadMachines();
