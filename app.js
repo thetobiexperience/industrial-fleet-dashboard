@@ -27,6 +27,11 @@ const offlineCount = document.getElementById("offline-count");
 
 // Load machine-data from JSON file
 async function loadMachines() {
+
+    machineContainer.innerHTML = `
+        <p>Loading machines...</p>
+    `;
+
     try {
         const response = await fetch("data/machines.json");
 
@@ -75,6 +80,8 @@ function renderMachines() {
     }
 
     machineContainer.innerHTML = "";
+
+    let foundMachines = 0;
 
     for (const machine of sortedMachines) {
         const machineName = machine.name.toLowerCase();
@@ -126,6 +133,16 @@ function renderMachines() {
 
     // Add the finished card to the page
     machineContainer.append(card);
+
+    foundMachines++;
+  }
+
+  if (foundMachines === 0) {
+      machineContainer.innerHTML = `
+          <p class="empty-message">
+              No machines match your search. Try another search or filter.
+          </p>
+      `;
   }
 }
 
