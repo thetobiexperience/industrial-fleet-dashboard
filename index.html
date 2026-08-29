@@ -24,11 +24,20 @@
 
     <main>
         <section>
-
-            <h2>Fleet Overview</h2>
-            <p class="section-description">
-                View, search and monitor all machines.
-            </p>
+            <div class="fleet-header">
+                <h2>Fleet Overview</h2>
+                <p class="section-description">
+                    View, search and monitor all machines.
+                </p>
+                
+                <button
+                    id="add-machine-button"
+                    type="button"
+                    title="Add new machine"
+                >
+                    +
+                </button>
+            </div>
 
               <div class="toolbar">
                 <input
@@ -50,6 +59,7 @@
                     <option value="temperature">Temperature</option>
                 </select>
               </div>
+              
             <div class="summary">
                 <div class="summary-card">
                     <strong id="running-count">0</strong>

@@ -11,6 +11,7 @@ let machines = [];
 
 const machineContainer = document.getElementById("machine-container");
 const machineDetails = document.getElementById("machine-details");
+const addMachineButton = document.getElementById("add-machine-button");
 
 const searchInput = document.getElementById("search-input");
 const statusDropdown = document.getElementById("status-dropdown");
@@ -199,10 +200,58 @@ function showMachineDetails(machine) {
     `;
 }
 
+function showAddMachineForm() {
+    machineDetails.innerHTML = `
+        <form>
+          <h3>Add new machine</h3>
+            <label for="machine-name">Name</label>
+            <input id="machine-name"
+                   type="text"
+                   placeholder="Machine name"
+                   required
+            >
+
+            <label for="machine-status">Status</label>
+            <select id="machine-status">
+                <option value="Running">Running</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Offline">Offline</option>
+            </select>
+
+            <label for="machine-hours">Operating hours</label>
+            <input id="machine-hours"
+                   type="number"
+                   placeholder="Machine hours"
+            >
+
+            <label for="machine-location">Location</label>
+            <input
+                id="machine-location"
+                type="text"
+                placeholder="Machine location"
+            >
+
+            <label for="machine-temperature">Temperature</label>
+            <input
+                id="machine-temperature"
+                type="number"
+                placeholder="Machine temperature"
+            >
+
+            <button type="submit">
+              Add machine to fleet
+            </button>
+        </form>
+    `;
+}
 
 // =====================
 // Event listeners
 // =====================
+
+addMachineButton.addEventListener("click", function () {
+    showAddMachineForm();
+});
 
 searchInput.addEventListener("input", function () {
     renderMachines();
@@ -233,3 +282,4 @@ document.addEventListener("click", function (event) {
 // =====================
 
 loadMachines();
+showAddMachineForm();
